@@ -1,0 +1,26 @@
+imaqhwinfo
+imaqhwinfo ('winvideo')
+imaqhwinfo ('winvideo',1)
+v=videoinput ('winvideo',1);
+preview (v)
+a=getsnapshot(v)
+imtool (a)
+b=ycbcr2rgb(a)
+imtool(b)
+R=b(:,:,1);
+G=b(:,:,2);
+B=b(:,:,3);
+impixel(b)
+I=((R>100)&(R<255)&(G>28)&(G<140)&(B>50)&(B<150));
+imtool(I)
+
+
+
+
+
+DefaultFormat: 'YUY2_1280x720'
+    DeviceFileSupported: 0
+             DeviceName: 'FJ Camera'
+               DeviceID: 1
+      ObjectConstructor: 'videoinput('winvideo', 1)'
+       SupportedFormats: {1x8 cell}
