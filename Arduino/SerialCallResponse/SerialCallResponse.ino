@@ -69,7 +69,7 @@ else if (inbyte == 'L')
  digitalWrite(10,HIGH);
  Serial.println("STOP");
 }
-delay(1000);
+//delay(100);
   }
 }
 

@@ -2,8 +2,8 @@
 clc % Clearing Matlab desktop
 vid=videoinput('winvideo',1,'YUY2_1280x720'); % Defining the video input object
 set(vid,'FramesPerTrigger',1); % Setting frames per trigger
- preview(vid); %////// Showing the video of the moving Ball(TO BE USED %
-% WHILE TESTING)
+preview(vid); %////// Showing the video of the moving Ball(TO BE USED %
+% WH ILE TESTING)
 pause(10);% Waiting for a certain time for the system to get initialised
 rgb_image = getsnapshot(vid); % Storing Image in an array variable
 [a b c]= size(rgb_image); % Determining the size of the captured frame.
@@ -31,14 +31,14 @@ while(1)
     fR=rgb_image(:,:,1);
     fG=rgb_image(:,:,2);
     fB=rgb_image(:,:,3);% Storing RGB components of the image in seperate arrays
-    % I=((fR<=30) & (fG<=30) & (fB>=30)); % Converting the RGB Image into binary image///Detecting only the red component
+    I=((fR<=30) & (fG<=30) & (fB>=30)); % Converting the RGB Image into binary image///Detecting only the red component
     %I=fR>200;
     %I= fG>200;
     
     
     %I=((fR>100)&(fR<130)&(fG>20)&(fG<65)&(fB>80)&(fB<100));
-    I=((fR>85)&(fR<115)&(fG>25)&(fG<60)&(fB>60)&(fB<100));
-    
+    %I=((fR>85)&(fR<115)&(fG>25)&(fG<60)&(fB>60)&(fB<100));  
+   % I=(fR>160 & fR<251)&(fG>62 & fG<192)&(fB>90 & fB<219);
     % Following are the steps For Detecting the red ball
     se=strel('disk',5);
     B=imopen(I,se);

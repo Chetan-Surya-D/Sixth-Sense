@@ -1,6 +1,6 @@
 clear all;
  clc % Clearing Matlab desktop
-vid=videoinput('winvideo',1,'RGB24_640x480'); % Defining the video input object
+vid=videoinput('winvideo',1,'YUY2_1280x720'); % Defining the video input object
 set(vid,'FramesPerTrigger',1); % Setting frames per trigger
 % preview(vid); %////// Showing the video of the moving Ball(TO BE USED %
 % WHILE TESTING)
@@ -36,7 +36,7 @@ se=strel('disk',5);
 B=imopen(I,se);
 final=imclose(B,se);
 [L,n]=bwlabel(final);
-imshow(L);
+%imshow(L);
 
 for k=1:n
 [r,c]=find(L==k);

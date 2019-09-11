@@ -1,4 +1,4 @@
-clear all;
+  clear all;
 clc % Clearing Matlab desktop
 vid=videoinput('winvideo',1,'YUY2_1280x720'); % Defining the video input object
 set(vid,'FramesPerTrigger',1); % Setting frames per trigger
@@ -36,15 +36,15 @@ while(1)
     %I= fG>200;
     
     
-    I=((fR>100)&(fR<130)&(fG>20)&(fG<65)&(fB>80)&(fB<100));
-
-    
+    %I=((fR>100)&(fR<130)&(fG>20)&(fG<65)&(fB>80)&(fB<100));
+   I=((fR>85)&(fR<115)&(fG>25)&(fG<60)&(fB>60)&(fB<100));  
+   % I=(fR>160 & fR<251)&(fG>62 & fG<192)&(fB>90 & fB<219);
     % Following are the steps For Detecting the red ball
     se=strel('disk',5);
     B=imopen(I,se);
     final=imclose(B,se);
     [L,n]=bwlabel(final);
-    %     (L);
+    %imshow(L);
     %imshow(rgb_image); %////THIS IS TO BE USED ONLY WHILE TESTING
     %hold on % ////THIS IS TO BE USED ONLY WHILE TESTING
     for k=1:n
